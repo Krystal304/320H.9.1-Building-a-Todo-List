@@ -17,6 +17,30 @@ function reducer(state, action) {
             return state.filter((item) => item !== action.payload)
         default:
             return state;
-            
+
     }
+}
+
+
+export default function ToDoApp() {
+    const [toDos, dispatch] = useReducer(reducer, Todos);
+    const [toDo, setToDo] = useState('');
+
+    const handleAdd = (e) => {
+        e.preventDefault();
+        if (toDo.trim()) {
+            dispatch({ type: 'ADD', payload: toDo });
+            setToDo('');
+        }
+    
+        };
+
+ return (
+    <div>
+        <h1>To Do List</h1>
+        <ToDoFormApp toDo={toDo} setToDo={setToDo} handleAdd={handleAdd} />
+        <ToDoList toDos={toDos} dispatch={dispatch} />  
+
+ </div>
+ );
 }
