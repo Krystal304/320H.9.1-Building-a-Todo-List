@@ -15,19 +15,29 @@ function handleChange(e){
 
 function handleSubmit(event){
     event.preventDefault()
-    let newItem = {inputValue: inputValue, id: Date.now()}
-   toAddFunction(newItem)
+
+    if(inputValue.trim() === ""){
+        return;
+    }
+    let newItem = {inputValue: inputValue, id: Date.now(), completed: false};
+   toAddFunction(newItem);
+   setInputValue('');
 
 
 };
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" value={inputValue} onChange={handleChange} placeholder="Add task...">
+      <input type="text" 
+      value={inputValue} 
+      onChange={handleChange} 
+      placeholder="Add task..."
+      />
   
-      </input>
+    <button type="submit">Submit</button>
+      {/* </input>
       <button>Submit
       </button>
-      {inputValue}
+      {inputValue} */}
       </form>
   );
 }

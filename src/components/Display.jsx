@@ -1,16 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 
-function Display({toDoList, toDelete, toggleComplete, toEdit}) {
+function Display({toDoList, toEdit}) {
 
+
+  //toDelete, toggleComplete
   const [editId, setEditId] = useState(null);
-  const [newInputValue, setNewInputValue] = useState('');
+  const [editeText, setEditeText] = useState('');
+  // const [newInputValue, setNewInputValue] = useState('');
+
 
   const handleEdit = (e) => { 
-    setNewInputValue(e.target.value);
+    setEditeText(e.target.value);
+    // setNewInputValue(e.target.value);
   };
 
-  const handleSaveEdit = () => {
+  const handleSaveEdit = (id) => {
     toEdit(id, newInputValue);
     setEditId(null);
     setNewInputValue('');
@@ -20,8 +25,8 @@ function Display({toDoList, toDelete, toggleComplete, toEdit}) {
     <div>
       <ul>
         {toDoList.map((toDo)=>
-            <li key={toDo.id}>
-                {/* {toDo.inputValue} */}
+            <li key={toDo.id} className={toDo.isCompleted ? 'completed' : ''}>
+                 
                 {editId !== toDo.id ? (
                     <div>
                       <input
