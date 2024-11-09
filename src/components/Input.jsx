@@ -19,7 +19,7 @@ function handleSubmit(event){
     if(inputValue.trim() === ""){
         return;
     }
-    let newItem = {inputValue: inputValue, id: Date.now(), completed: false};
+    let newItem = {inputValue: inputValue, id: Date.now()};
    toAddFunction(newItem);
    setInputValue('');
 
