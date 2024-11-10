@@ -19,7 +19,7 @@ function handleSubmit(event){
     if(inputValue.trim() === ""){
         return;
     }
-    let newItem = {inputValue: inputValue, id: Date.now()};
+    let newItem = {inputValue: inputValue, id: Date.now(), isCompleted: false };
    toAddFunction(newItem);
    setInputValue('');
 
@@ -34,10 +34,7 @@ function handleSubmit(event){
       />
   
     <button type="submit">Submit</button>
-      {/* </input>
-      <button>Submit
-      </button>
-      {inputValue} */}
+     
       </form>
   );
 }
