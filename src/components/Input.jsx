@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 function Input({toAddFunction}) {
 const [inputValue, setInputValue] = useState('');
-const [submitValue, setSubmitValue] = useState('');
+
 
 function handleChange(e){
     setInputValue(e.target.value);

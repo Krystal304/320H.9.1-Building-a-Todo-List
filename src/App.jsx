@@ -10,7 +10,7 @@ function App() {
 
 
   function toAdd(newItem) {
-    setToDoList([...toDoList, newItem]);
+    setToDoList([newItem, ...toDoList]);
 
   }
 
